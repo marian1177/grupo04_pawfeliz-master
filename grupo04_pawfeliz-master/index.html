@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Aplicación PawFeliz</title>
+</head>
+<body>
+<header>
+    <div class="contenido">
+        <h1 class="icon-paw">PawFelíz</h1>
+        <input type="checkbox" id="btn-menu">
+        <label class="icon-menu" for="btn-menu"></label>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="ingreso.html">Ingreso</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="adopciones.html">Adopciones</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section id="banner">
+        <img src="imagenes/perro1.jpg" alt="perro">
+        <div class="contenedor">
+            <h2>Bienvenidos a Nuestro Sitio</h2>
+            <p>Juntos protegiendo a nuestros mejores amigos</p>
+        </div>
+    </section>
+
+    <section id="bienvenidos">
+        <h2>CONÉCTATE CON TU MASCOTA</h2>
+        <p>Con el collar inteligente PawFeliz, puedes monitorear la salud y seguridad de tu mascota en tiempo real. Protegemos a tus mejores amigos con tecnología de vanguardia.</p>
+    </section>
+
+
+        <section id="noticias">
+            <h3>Últimas novedades sobre PawFeliz</h3>
+            <div class="contenedor2">
+                <article>
+                    <img src="imagenes/pniña.jpg" alt="imagen1">
+                    <h4>Seguimiento de Actividad 24/7</h4>
+                    <p>Con PawFeliz, sabrás siempre lo que tu mascota está haciendo. ¡Seguridad y tranquilidad en tus manos!</p>
+                </article>
+                <article>
+                    <img src="imagenes/mcat.jpg" alt="gato1">
+                    <h4>Monitor de Salud</h4>
+                    <p>Controla la salud de tu mascota con nuestros sensores avanzados que detectan signos vitales y actividad física.</p>
+                </article>
+                <article>
+                    <img src="imagenes/cat-street-2.jpg" alt="gato2">
+                    <h4>Historial de Actividad</h4>
+                    <p>Accede al historial de actividades de tu mascota para mantener un registro de su bienestar a lo largo del tiempo.</p>
+                </article>
+                <article>
+                    <img src="imagenes/abuela.jpg" alt="abuela">
+                    <h4>Alerta de Ubicación</h4>
+                    <p>Recibe alertas instantáneas si tu mascota sale de su zona segura. ¡Siempre sabrás dónde está!</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <audio controls autoplay>
+        <source src="audio/Cono-Hielo.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+
+
+
+
+<style>
+    .chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.chatbot-icon {
+    width: 90px;
+    height: 90px;
+    background: url('imagenes/gatitochatbot.png') no-repeat center;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.chatbot-iframe {
+    width: 450px;
+    height: 430px;
+    display: none;
+    border: none;
+    autoline: none;
+    position: relative;
+}
+
+.close-chatbot {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff9800;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.chatbot-container.expanded .chatbot-iframe {
+    display: block;
+}
+
+.chatbot-container.expanded .chatbot-icon {
+    display: none;
+}
+
+.chatbot-container.expanded .close-chatbot {
+    display: block;
+}
+
+</style>
+
+<div class="chatbot-container">
+    <div class="chatbot-icon" onclick="toggleChatbot()"></div>
+    <iframe
+            class="chatbot-iframe"
+            allow="microphone;"
+            src="https://console.dialogflow.com/api-client/demo/embedded/af4e545c-d406-4a25-af26-d23cec7442c5">
+    </iframe>
+    <button class="close-chatbot" onclick="toggleChatbot()">Cerrar</button>
+</div>
+
+<script src="js/chatbot.js"></script>
+
+<footer>
+    <div class="contenedor3">
+        <p class="copy">PawFeliz &copy; 2024</p>
+        <div class="redes">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-x-twitter"></i></a></li> <!-- Nuevo ícono de Twitter -->
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-google"></i></a></li>
+                <li><a href="#"><i class="fab fa-firefox"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

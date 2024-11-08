@@ -1,0 +1,462 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(
+    to right,
+    #2d6a4f,
+    #74c476
+  ); 
+  font-family: "Roboto", sans-serif;
+}
+
+main {
+  padding: 2em;
+  border-radius: 12px;
+  background-image: url('../imagenes/fondo02.jpeg'); 
+  background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+  background-position: center; /* Centra la imagen en el div */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1em;
+  padding: 2em;
+  border-radius: 8px;
+}
+
+.product-image img {
+  border-radius: 8px;
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Borde metálico suave */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5), 0 0 20px #289dd2; /* Sombra más gruesa con celeste */
+  transition: all 0.3s ease-in-out;
+  opacity: 0.85; /* Controla la opacidad */
+  border-radius: 80px; /* esquinas redondeadas */
+}
+.product-image img:hover {
+  border-color: rgba(255, 255, 255, 0.5); /* Borde más fuerte al hacer hover */
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.8), 0 0 30px #289dd2; /* Efecto más brillante */
+  opacity: 1; /* Vuelve a opacidad total al hacer hover */
+}
+
+.product-image {
+  position: relative;
+  text-align: center;
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1em;
+}
+
+.thumbnail {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.5);
+}
+
+/* Estilos del Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* para estar encima de todos los elementos */
+}
+
+.modal-content-discount {
+  background: rgba(
+    72,
+    175,
+    70,
+    0.7
+  ); /* Fondo semi-transparente con color verde del carrito, pero se usa la imagen del perro con la pelota */
+  padding: 12em 2em 3em 2em;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background-image: url('../imagenes/oferta.png');
+  background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  z-index: 1010; /* Nivel más alto que cualquier otro elemento */
+}
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+}
+
+.confirm-button {
+  background: #2c5d2c;
+  color: white;
+  padding: 0.7em;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1em;
+  transition: background 0.3s;
+}
+
+.confirm-button:hover {
+  background: #388e3c;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-details h2 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  text-align: center; /* Desplaza el texto hacia la derecha */
+  background: rgba(
+    72,
+    175,
+    70,
+    0.7
+  ); /* Fondo semi-transparente con color verde del carrito */
+  padding: 0.5em; /* Agrega un pequeño relleno alrededor del texto */
+  border-radius: 15px; 
+  color: white; /* Color del texto */
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+}
+
+.product-details p {
+  font-size: 1.1em;
+  margin-bottom: 1.5em;
+}
+
+.product-description {
+  width: 80%; 
+  max-width: 600px; 
+  margin: 0 auto; 
+  background: rgba(72, 175, 70, 0.7); 
+  padding: 1.5em; 
+  border-radius: 15px; 
+  color: white; 
+  font-size: 1.1em; 
+  line-height: 1.6em; 
+  text-align: center; 
+  min-height: 9em; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+}
+
+.price {
+  width: 50%; 
+  max-width: 300px; 
+  margin: 1em auto;
+  background: rgba(72, 175, 70, 0.7);
+  padding: 0.5em 1em; 
+  border-radius: 10px; 
+  color: white; 
+  font-size: 1.5em;
+  font-weight: bold; 
+  text-align: center; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+}
+
+.size-selection select {
+  background: rgba(72, 175, 70, 0.7);
+  color: white; 
+  border: none;
+  padding: 0.5em;
+  border-radius: 5px; 
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: background 0.3s ease-in-out;
+}
+
+.size-selection select:hover {
+  background: rgba(
+    56,
+    142,
+    60,
+    0.8
+  ); /* Fondo verde más oscuro al pasar el mouse */
+}
+
+.size-selection select:focus {
+  outline: none;
+  background: linear-gradient(
+    135deg,
+    #2c5d2c,
+    #388e3c
+  ); /* Cambio de gradiente al hacer focus */
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6); /* Brillo verde celeste al hacer focus */
+}
+
+.color-selection {
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+}
+
+.color-selection label {
+  display: flex;
+
+  max-width: 153px;
+
+  background: rgba(72, 175, 70, 0.7); 
+  padding: 0.3em 0.4em; 
+  border-radius: 8px; 
+  color: white;
+  font-size: 1em; 
+  font-weight: bold; 
+  margin-bottom: 0.5em; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #4caf50; 
+  background: #fff; 
+  cursor: pointer;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1); 
+  opacity: 0.85;
+}
+
+.color-option:hover {
+  border: 3px solid #3a6f3a; 
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
+}
+
+.color-option:focus {
+  border: 3px solid #000;
+}
+
+.size-selection label {
+  color: #3f923e; 
+  font-weight: bold; 
+  font-size: 1.1em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+.size-selection select {
+  background: rgba(72, 175, 70, 0.7);
+  color: white;
+  padding: 0.4em; 
+  border: 2px solid #48af46; 
+  border-radius: 5px;
+  font-size: 1em; 
+  font-weight: bold; 
+  appearance: none; 
+  outline: none; /* Sin borde adicional al enfocar */
+}
+
+.size-selection select option {
+  background-color: #e8f5e9; /* Fondo claro para las opciones desplegadas */
+  color: #333; /* Color del texto de las opciones */
+}
+
+.add-to-cart {
+  background: rgba(
+    72,
+    175,
+    70,
+    0.7
+  ); /* Fondo semi-transparente con color verde del carrito */
+  color: white;
+  border: none;
+  padding: 1em;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 4px solid rgba(255, 255, 255, 0.3); 
+  opacity: 0.85; /* Controla la opacidad */
+}
+
+.add-to-cart:hover {
+  background: linear-gradient(135deg, #2c5d2c, #388e3c);
+}
+
+.add-to-cart {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+/* Estilos del Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-cart {
+  background: rgba(72, 175, 70, 0.9);
+  padding: 6em;
+  border-radius: 10px;
+  max-width: 397px;
+  width: 90%;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+}
+
+.payment-methods {
+  justify-content: space-around;
+  margin: 1em 0;
+}
+
+.payment-thumbnail {
+  width: 90px;
+  height: 50px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s;
+}
+
+.payment-thumbnail:hover {
+  transform: scale(1.1);
+  border-color: #fff;
+}
+
+.confirm-button {
+  background: #2c5d2c;
+  color: white;
+  padding: 0.7em;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.customer-reviews {
+  padding: 0em;
+  border-radius: 10px;
+  margin-top: 1em;
+  text-align: center; 
+  width: 80%; 
+
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.review {
+  display: inline-block; /* Esto hace que el recuadro de la imagen se ajuste al contenido */
+  position: relative;
+  background-image: url('../imagenes/paw2.png'); 
+  background-size: cover; 
+  background-position: center; 
+  width: 220px; 
+  height: 220px; 
+  padding: 20px;
+  text-align: center;
+}
+
+.review-text {
+  position: absolute;
+  top: 51%; /* Centra el texto verticalmente */
+  left: 50%; /* Centra el texto horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta el texto */
+  color: rgb(9, 17, 4);
+  font-size: 15.1px;
+  line-height: 19.1px;
+  font-weight: bold;
+  z-index: 1; /* Asegura que el texto esté sobre la imagen */
+}
+
+.review strong {
+  font-weight: bold;
+}
+
+footer {
+  background-color: #2e8b57;
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.footer-compras {
+  margin-top: 0;
+}
+
+footer .redes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer .redes ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+footer .redes ul li a {
+  color: white;
+  font-size: 1.5em;
+}

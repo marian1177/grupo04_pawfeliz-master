@@ -1,0 +1,60 @@
+{
+    "resultados":[
+        {       
+        "id": 1,
+        "nombre": "Nico",
+        "edad": "2 años",
+        "raza": "Caniche",
+        "contacto": "Claudia Gramajo",
+        "email": "claugramajo@gmail.com"
+        ,"imagen": "imagenes/nico1.jpg"
+        },
+        {
+        "id": 2,
+        "nombre": "Pedro",
+        "edad": "3 años",
+        "raza": "Perro",
+        "contacto": "Matias Ale",
+        "email": "alemati@gmail.com"
+        ,"imagen": "imagenes/pedro3.jpg"
+        },
+        {
+        "id": 3,
+        "nombre": "Ema",
+        "edad": "3 años",
+        "raza": "Gato",
+        "contacto": "Oriana Junco",
+        "email": "oyijunco@gmail.com"
+        ,"imagen": "imagenes/ema1.jpg"
+        },  
+        {
+        "id": 4,
+        "nombre": "Simona",
+        "edad": "2 años",
+        "raza": "Gato",
+        "contacto": "Ricardo Darin",
+        "email": "richardd@gmail.com"
+        ,"imagen": "imagenes/simona1.jpg"
+        },
+        {
+          "id": 5,
+        "nombre": "Ramiro",
+        "edad": "5 meses",
+        "raza": "Perro",
+        "contacto": "Marcelo Carcar",
+        "email": "carcarcar82@gmail.com"
+        ,"imagen": "imagenes/RAMIRO.jpg"
+        },
+        {
+          "id": 6,
+        "nombre": "Poppy",
+        "edad": "1 año",
+        "raza": "Gato",
+        "contacto": "Gaston Graffigna",
+        "email": "gastongraffigna74@gmail.com"
+        ,"imagen": "imagenes/POPPY.jpg"
+        }
+    ] 
+}    
+        
+             

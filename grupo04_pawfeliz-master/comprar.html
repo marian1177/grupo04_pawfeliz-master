@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/fontello.css" />
+    <link rel="stylesheet" href="css/comprar.css" />     <!-- pagina de noticias reemplazada-->
+    <link rel="stylesheet" href="css/footer.css" />
+
+
+    <title>Comprar</title>
+  </head>
+  <body>
+    <header>
+      <div class="contenido">
+        <h1 class="icon-paw">PawFelíz</h1>
+        <input type="checkbox" id="btn-menu" />
+        <label class="icon-menu" for="btn-menu"></label>
+        <nav class="menu">
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="ingreso.html">Ingreso</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="Comprar.html">Comprar</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="adopciones.html">Adopciones</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="product">
+        <div class="product-image">    <!--imagen central y thumbnails -->
+          <img
+            class="img1"
+            id="main-image"
+            src="imagenes/SmartCollar.png"
+            alt="foto1"
+          />
+          <div class="thumbnail-container">
+            <img
+              class="thumbnail"
+              src="imagenes/SmartCollar.png"
+              alt="thumbnail1"
+            />
+            <img
+              class="thumbnail"
+              src="imagenes/SmartCollar2.png"
+              alt="thumbnail2"
+            />
+            <img
+              class="thumbnail"
+              src="imagenes/SmartcollarAzul.png"
+              alt="thumbnail3"
+            />
+            <img
+              class="thumbnail"
+              src="imagenes/SmartcollarAmarillo.png"
+              alt="thumbnail4"
+            />
+          </div>
+        </div>
+
+        <!-- Ventana popup de descuento-->
+        <div id="discount-modal" class="modal">
+          <div class="modal-content-discount">
+            <span class="close-button">&times;</span>
+            <h2>¡Oferta Especial!</h2>
+            <p>
+              Obtén un <strong>10% de descuento</strong> en tu compra por tiempo
+              limitado.
+            </p>
+            <button id="apply-discount" class="confirm-button">   <!-- boton que devuelve una confirmacion -->
+              Aplicar Descuento
+            </button>
+          </div>
+        </div>
+
+        <div class="product-details">        <!-- titlo y descripcion del producto a vender -->
+          <h2>Paw Feliz Smart-Collar</h2>
+          <p class="product-description">
+            Collar inteligente para monitorear en tiempo real la actividad,
+            salud y ubicación de tu mascota. Equipado con sensores de frecuencia
+            cardíaca, temperatura y GPS, ofrece alertas para cambios de apetito,
+            signos vitales y geolocalizacion. Además, incluye recordatorios
+            automáticos para vacunas y chequeos veterinarios, ayudando a
+            mantener a tu mascota siempre saludable y conectada.
+          </p>
+          <div class="price">Precio: $125.000,00</div>
+
+          <!-- Selección de Color (cada seleccion cambia la imagen grande)-->
+          <div class="color-selection">
+            <label for="colors">Seleccionar Color:</label>
+            <div class="color-options">
+              <button
+                class="color-option"
+                style="background-color: rgb(94, 82, 82)"
+                data-color="gris"
+              ></button>
+              <button
+                class="color-option"
+                style="background-color: rgb(155, 59, 158)"
+                data-color="mix"
+              ></button>
+              <button
+                class="color-option"
+                style="background-color: rgb(250, 253, 70)"
+                data-color="amarillo"
+              ></button>
+              <button
+                class="color-option"
+                style="background-color: rgb(15, 94, 240)"
+                data-color="azul"
+              ></button>
+            </div>
+          </div>
+
+          <!-- Selección de Tamaño -->
+          <div class="size-selection">
+            <label for="sizes">Seleccionar Tamaño:</label>
+            <select id="sizes">
+              <option value="pequeño">Pequeño</option>
+              <option value="mediano">Mediano</option>
+              <option value="grande">Grande</option>
+            </select>
+          </div>
+
+          <!-- Botón de Agregar al Carrito (dispara ventana de confirmacion de compra)-->
+          <button class="add-to-cart">Agregar al Carrito</button>
+
+          <!-- Ventana Modal form para cargar datos y resumen de compra y calculo de envio por prov-->
+          <div id="cart-modal" class="modal">
+            <div class="modal-content-cart">
+              <span class="close-button">&times;</span>
+              <h2>Resumen de Compra</h2>
+              <p>Total: $125.000,00</p>
+
+              <!-- Formulario de Envío -->
+              <form id="shipping-form">
+                <label for="province">Provincia:</label>
+                <input type="text" id="province" name="province" required />
+
+                <label for="zone">Zona:</label>
+                <input type="text" id="zone" name="zone" required />
+
+                <label for="locality">Localidad:</label>
+                <input type="text" id="locality" name="locality" required />
+
+                <label for="cp">Código Postal:</label>
+                <input type="text" id="cp" name="cp" required />
+
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" name="phone" required />
+
+                <!-- Métodos de Pago -->
+                <h3>Método de Pago</h3>
+                <div class="payment-methods">
+                  <img
+                    src="imagenes/visa.png"
+                    alt="Visa"
+                    class="payment-thumbnail"
+                  />
+                  <img
+                    src="imagenes/mastercard.png"
+                    alt="MasterCard"
+                    class="payment-thumbnail"
+                  />
+                  <img
+                    src="imagenes/paypal.png"
+                    alt="paypal"
+                    class="payment-thumbnail"
+                  />
+                  <img
+                    src="imagenes/transferencia.png"
+                    alt="transferencia"
+                    class="payment-thumbnail"
+                  />
+                </div>
+
+                <button type="submit" class="confirm-button">
+                  Confirmar Compra
+                </button>
+                <p></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!-- reviews de clientes -->
+      <div class="customer-reviews">
+        <div class="review-container">
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>María:</strong> "¡Excelente producto! Mi perro está más
+                activo y feliz."
+              </p>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>Juan:</strong> "Muy útil para el seguimiento de mi gato,
+                especialmente el GPS."
+              </p>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>Laura:</strong> "El recordatorio de vacunas es muy
+                práctico. Me encanta."
+              </p>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>Carlos:</strong> "Recomiendo este producto. La salud de
+                mi mascota ha mejorado."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <style>
+      .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .chatbot-icon {
+        width: 90px;
+        height: 90px;
+        background: url("imagenes/gatitochatbot.png") no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+      }
+
+      .chatbot-iframe {
+        width: 450px;
+        height: 430px;
+        display: none;
+        border: none;
+        autoline: none;
+        position: relative;
+      }
+
+      .close-chatbot {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff9800;
+        border: none;
+        color: #fff;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+      }
+
+      .chatbot-container.expanded .chatbot-iframe {
+        display: block;
+      }
+
+      .chatbot-container.expanded .chatbot-icon {
+        display: none;
+      }
+
+      .chatbot-container.expanded .close-chatbot {
+        display: block;
+      }
+    </style>
+
+    <div class="chatbot-container">
+      <div class="chatbot-icon" onclick="toggleChatbot()"></div>
+      <iframe
+        class="chatbot-iframe"
+        allow="microphone;"
+        src="https://console.dialogflow.com/api-client/demo/embedded/af4e545c-d406-4a25-af26-d23cec7442c5"
+      >
+      </iframe>
+      <button class="close-chatbot" onclick="toggleChatbot()">Cerrar</button>
+    </div>
+
+    <script src="js/chatbot.js"></script>
+    <script src="js/comprar.js"></script>
+
+    <footer class="footer-compras">
+      <div class="contenedor">
+        <p class="copy">PawFeliz &copy; 2024</p>
+        <div class="redes">
+          <ul>
+            <li>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-x-twitter"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-google"></i></a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-firefox"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

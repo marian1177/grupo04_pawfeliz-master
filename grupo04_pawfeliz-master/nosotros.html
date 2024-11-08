@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="stylesheet" href="css/nosotros.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <title>Nosotros</title>
+</head>
+<body>
+    <header>
+        <div class="contenido">
+            <h1 class="icon-paw">PawFelíz</h1>
+            <input type="checkbox" id="btn-menu">
+            <label class="icon-menu" for="btn-menu"></label>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="ingreso.html">Ingreso</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="noticias.html">Noticias</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Nosotros</h1>
+    <section>      
+        <div class="contenedor4">
+            <img src="imagenes/fondoperro.png" alt="fondo">
+            <h2>Bienvenidos a Nuestro Dispositivo</h2>
+        </div>
+    </section>  
+
+       <div class="grid">
+            <img id="item1" src="imagenes/nos1.jpg" alt="foto1">
+            <img id="item2" src="imagenes/nos2.jpg" alt="foto2"> 
+            <div id="item3">
+                <p><b>Somos una ONG sin fines de lucro.<br>RESCATE MASCOTAS es un refugio de animales que trabaja en la concientización por medio del rescate y del sistema de “puertas abiertas”: cualquiera puede llegarse y trabajar en conjunto, involucrando.<br> Nuestra misión es cerrar el círculo que comienza con el rescate, sigue con la recuperación, el albergue y termina con la adopción de un animal en estado de abandono o maltrato, involucrando a la sociedad, creando conciencia, al lograr la identificación con el animal rescatado.<br> El Campito es el único refugio de América Latina que tiene más de 200 perritos especiales, 110 de ellos totalmente inválidos, que se movilizan con sus carros o sillita.</b></p>
+            </div>
+            <img id="item4" src="imagenes/nos3.jpg" alt="foto3">  
+            <img id="item5" src="imagenes/nos4.jpg" alt="foto4">  
+            <img id="item6" src="imagenes/nos5.jpg" alt="foto5">
+            <img id="item7" src="imagenes/nos6.jpg" alt="foto7">
+        </div>
+
+    </main>
+
+    <style>
+        .chatbot-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .chatbot-icon {
+        width: 90px;
+        height: 90px;
+        background: url('imagenes/gatitochatbot.png') no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    .chatbot-iframe {
+        width: 450px;
+        height: 430px;
+        display: none;
+        border: none;
+        autoline: none;
+        position: relative;
+    }
+
+    .close-chatbot {
+        display: none;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #ff9800;
+        border: none;
+        color: #fff;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+    .chatbot-container.expanded .chatbot-iframe {
+        display: block;
+    }
+
+    .chatbot-container.expanded .chatbot-icon {
+        display: none;
+    }
+
+    .chatbot-container.expanded .close-chatbot {
+        display: block;
+    }
+
+    </style>
+
+    <div class="chatbot-container">
+        <div class="chatbot-icon" onclick="toggleChatbot()"></div>
+        <iframe
+                class="chatbot-iframe"
+                allow="microphone;"
+                src="https://console.dialogflow.com/api-client/demo/embedded/af4e545c-d406-4a25-af26-d23cec7442c5">
+        </iframe>
+        <button class="close-chatbot" onclick="toggleChatbot()">Cerrar</button>
+    </div>
+
+    <script src="js/chatbot.js"></script>
+
+    <footer>
+        <div class="contenedor">
+            <p class="copy">PawFeliz &copy; 2024</p>
+            <div class="redes">
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-x-twitter"></i></a></li> <!-- Nuevo ícono de Twitter -->
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google"></i></a></li>
+                    <li><a href="#"><i class="fab fa-firefox"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+</body>
+</html>
