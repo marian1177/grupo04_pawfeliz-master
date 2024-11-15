@@ -12,18 +12,14 @@
 }
 
 body {
-  background-image: linear-gradient(
-    to right,
-    #2d6a4f,
-    #74c476
-  ); 
+  background-image: linear-gradient(to right, #2d6a4f, #74c476);
   font-family: "Roboto", sans-serif;
 }
 
 main {
   padding: 2em;
   border-radius: 12px;
-  background-image: url('../imagenes/fondo02.jpeg'); 
+  background-image: url("../imagenes/fondoComprar2.png");
   background-size: cover; /* Asegura que la imagen cubra todo el fondo */
   background-position: center; /* Centra la imagen en el div */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -38,40 +34,97 @@ main {
 }
 
 .product-image img {
+  width: 100%;
+
+  max-width: 1000px; /* Tamaño máximo para la imagen central */
+  height: auto; /* Mantiene la proporción al cambiar el tamaño */
+
   border-radius: 8px;
   border: 4px solid rgba(255, 255, 255, 0.3); /* Borde metálico suave */
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5), 0 0 20px #289dd2; /* Sombra más gruesa con celeste */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.5), 0 0 20px #48af46b3; /* Sombra más gruesa con celeste */
   transition: all 0.3s ease-in-out;
-  opacity: 0.85; /* Controla la opacidad */
+  opacity: 0.7; /* Controla la opacidad */
   border-radius: 80px; /* esquinas redondeadas */
 }
 .product-image img:hover {
   border-color: rgba(255, 255, 255, 0.5); /* Borde más fuerte al hacer hover */
-  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.8), 0 0 30px #289dd2; /* Efecto más brillante */
+  box-shadow: 0 4px 20px #48af46b3, 0 0 30px #48af46b3; /* Efecto más brillante */
   opacity: 1; /* Vuelve a opacidad total al hacer hover */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 .product-image {
+  min-width: 155px;
   position: relative;
   text-align: center;
+  flex-wrap: wrap; /* Permite que los thumbnails se ajusten en varias líneas si es necesario */
+  max-width: 90%; /* Asegura que el contenedor no exceda el ancho de la pantalla */
+}
+
+/* Estilos del Modal para la vista ampliada de la imagen */
+#image-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#image-modal .close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
 }
 
 .thumbnail-container {
   display: flex;
+  flex-wrap: wrap; /* Permite que los thumbnails se ajusten*/
   justify-content: center;
   gap: 10px;
   margin-top: 1em;
+  max-width: 70%; /* Limita el ancho del contenedor para evitar que ocupe todo el espacio */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thumbnail.selected {
+  border: 3px solid #fffb05de;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.5);
 }
 
 .thumbnail {
-  width: 100px;
-  height: 100px;
+  flex: 1 1 17%; /* Mantiene un ancho flexible y permite ajuste responsivo */
+  min-width: 50px; /* Ancho mínimo para evitar que sean demasiado pequeños */
+  max-width: 100px; /* Ancho máximo para controlar el tamaño */
+  height: auto;
   border-radius: 8px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
   opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .thumbnail {
+    flex: 1 1 45%; /* Se vuelven más grandes en dispositivos móviles */
+  }
 }
 
 .thumbnail:hover {
@@ -94,12 +147,7 @@ main {
 }
 
 .modal-content-discount {
-  background: rgba(
-    72,
-    175,
-    70,
-    0.7
-  ); /* Fondo semi-transparente con color verde del carrito, pero se usa la imagen del perro con la pelota */
+  background: #48af46b3; /* Fondo semi-transparente con color verde del carrito, pero se usa la imagen del perro con la pelota */
   padding: 12em 2em 3em 2em;
   border-radius: 10px;
   max-width: 400px;
@@ -107,12 +155,23 @@ main {
   color: white;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  background-image: url('../imagenes/oferta.png');
+  background-image: url("../imagenes/oferta.png");
   background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
   background-position: center; /* Centra la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   z-index: 1010; /* Nivel más alto que cualquier otro elemento */
+  animation: fadeIn 0.5s ease-in-out;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .close-button {
   position: absolute;
   top: 10px;
@@ -148,16 +207,11 @@ main {
   font-size: 1.8em;
   margin-bottom: 1em;
   text-align: center; /* Desplaza el texto hacia la derecha */
-  background: rgba(
-    72,
-    175,
-    70,
-    0.7
-  ); /* Fondo semi-transparente con color verde del carrito */
+  background: #48af46b3; /* Fondo semi-transparente con color verde del carrito */
   padding: 0.5em; /* Agrega un pequeño relleno alrededor del texto */
-  border-radius: 15px; 
+  border-radius: 15px;
   color: white; /* Color del texto */
-  border: 4px solid rgba(255, 255, 255, 0.3); 
+  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .product-details p {
@@ -166,65 +220,78 @@ main {
 }
 
 .product-description {
-  width: 80%; 
-  max-width: 600px; 
-  margin: 0 auto; 
-  background: rgba(72, 175, 70, 0.7); 
-  padding: 1.5em; 
-  border-radius: 15px; 
-  color: white; 
-  font-size: 1.1em; 
-  line-height: 1.6em; 
-  text-align: center; 
-  min-height: 9em; 
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(72, 175, 70, 0.7);
+  padding: 1.5em;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.1em;
+  line-height: 1.6em;
+  text-align: center;
+  min-height: 9em;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  border: 4px solid rgba(255, 255, 255, 0.3); 
+  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .price {
-  width: 50%; 
-  max-width: 300px; 
+  width: 80%; /* Ajusta el ancho de forma más responsiva */
+  max-width: 300px;
   margin: 1em auto;
   background: rgba(72, 175, 70, 0.7);
-  padding: 0.5em 1em; 
-  border-radius: 10px; 
-  color: white; 
-  font-size: 1.5em;
-  font-weight: bold; 
-  text-align: center; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  border: 4px solid rgba(255, 255, 255, 0.3); 
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  color: white;
+  font-size: clamp(1em, 2.5vw, 1.5em); /* Tamaño de fuente responsivo */
+
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .size-selection select {
   background: rgba(72, 175, 70, 0.7);
-  color: white; 
+  color: #ffffff;
   border: none;
   padding: 0.5em;
-  border-radius: 5px; 
+  border-radius: 5px;
   font-size: 1em;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease-in-out;
+  appearance: none; /* Elimina la flecha predeterminada en algunos navegadores */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.size-selection label {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  display: block;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad */
 }
 
 .size-selection select:hover {
-  background: rgba(
-    56,
-    142,
-    60,
-    0.8
-  ); /* Fondo verde más oscuro al pasar el mouse */
+  background: rgba(56, 142, 60, 0.9);
 }
 
 .size-selection select:focus {
   outline: none;
-  background: linear-gradient(
-    135deg,
-    #2c5d2c,
-    #388e3c
-  ); /* Cambio de gradiente al hacer focus */
-  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6); /* Brillo verde celeste al hacer focus */
+  background: linear-gradient(135deg, #2c5d2c, #388e3c);
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6);
+}
+/* Icono de flecha para el select */
+.select-container::after {
+  content: "\25BC"; /* Flecha hacia abajo */
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  pointer-events: none;
 }
 
 .color-selection {
@@ -238,15 +305,15 @@ main {
 
   max-width: 153px;
 
-  background: rgba(72, 175, 70, 0.7); 
-  padding: 0.3em 0.4em; 
-  border-radius: 8px; 
+  background: rgba(72, 175, 70, 0.7);
+  padding: 0.3em 0.4em;
+  border-radius: 8px;
   color: white;
-  font-size: 1em; 
-  font-weight: bold; 
-  margin-bottom: 0.5em; 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); 
-  border: 4px solid rgba(255, 255, 255, 0.3); 
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .color-options {
@@ -259,16 +326,16 @@ main {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 3px solid #4caf50; 
-  background: #fff; 
+  border: 3px solid #4caf50;
+  background: #fff;
   cursor: pointer;
   transition: border 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 255, 255, 0.1);
   opacity: 0.85;
 }
 
 .color-option:hover {
-  border: 3px solid #3a6f3a; 
+  border: 3px solid #3a6f3a;
   box-shadow: 0 4px 12px rgba(0, 255, 255, 0.4);
 }
 
@@ -277,21 +344,21 @@ main {
 }
 
 .size-selection label {
-  color: #3f923e; 
-  font-weight: bold; 
+  color: #3f923e;
+  font-weight: bold;
   font-size: 1.1em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); 
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .size-selection select {
   background: rgba(72, 175, 70, 0.7);
   color: white;
-  padding: 0.4em; 
-  border: 2px solid #48af46; 
+  padding: 0.4em;
+  border: 2px solid #48af46;
   border-radius: 5px;
-  font-size: 1em; 
-  font-weight: bold; 
-  appearance: none; 
+  font-size: 1em;
+  font-weight: bold;
+  appearance: none;
   outline: none; /* Sin borde adicional al enfocar */
 }
 
@@ -313,16 +380,18 @@ main {
   cursor: pointer;
   font-size: 1em;
   border-radius: 5px;
-  border: 4px solid rgba(255, 255, 255, 0.3); 
+  border: 4px solid rgba(255, 255, 255, 0.3);
   opacity: 0.85; /* Controla la opacidad */
+  margin-top: 2rem;
 }
 
 .add-to-cart:hover {
+  animation: bounce 0.5s;
   background: linear-gradient(135deg, #2c5d2c, #388e3c);
 }
 
 .add-to-cart {
-  animation: bounce 1s infinite alternate;
+  animation: none;
 }
 
 @keyframes bounce {
@@ -400,23 +469,32 @@ main {
   padding: 0em;
   border-radius: 10px;
   margin-top: 1em;
-  text-align: center; 
-  width: 80%; 
+  text-align: center;
+  width: 100%;
 
-  margin-left: auto; 
-  margin-right: auto; 
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-evenly; /* Distribuye los elementos equitativamente */
+  flex-wrap: wrap; /* Permite que los elementos salten de línea si no hay espacio */
 }
 
 .review {
   display: inline-block; /* Esto hace que el recuadro de la imagen se ajuste al contenido */
   position: relative;
-  background-image: url('../imagenes/paw2.png'); 
-  background-size: cover; 
-  background-position: center; 
-  width: 220px; 
-  height: 220px; 
+  background-image: url("../imagenes/paw4.png");
+  background-size: cover;
+  background-position: center;
+  width: 250px;
+  height: 270px;
   padding: 20px;
   text-align: center;
+
+  transition: all 0.3s ease-in-out;
+  opacity: 0.76; /* Controla la opacidad */
+
+  margin: 30px; /* Espacio entre los elementos */
+  flex: 1 1 250px; /* Permite que los elementos crezcan y se reduzcan */
+  max-width: 300px; /* Ancho máximo para evitar que sean demasiado grandes */
 }
 
 .review-text {
@@ -424,7 +502,8 @@ main {
   top: 51%; /* Centra el texto verticalmente */
   left: 50%; /* Centra el texto horizontalmente */
   transform: translate(-50%, -50%); /* Ajusta el texto */
-  color: rgb(9, 17, 4);
+  color: #ffffff;
+  /* color: rgb(139, 0, 0);*/
   font-size: 15.1px;
   line-height: 19.1px;
   font-weight: bold;
@@ -440,6 +519,7 @@ footer {
   color: white;
   padding: 1em 0;
   text-align: center;
+  /*background: linear-gradient(135deg, #2e8b57, #74c476);*/
 }
 
 .footer-compras {

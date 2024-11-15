@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/estilo.css" />
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/fontello.css" />
-    <link rel="stylesheet" href="css/comprar.css" />     <!-- pagina de noticias reemplazada cambios-->
+    <link rel="stylesheet" href="css/comprar.css" />
+    <!-- pagina de noticias reemplazada cambios-->
     <link rel="stylesheet" href="css/footer.css" />
-
 
     <title>Comprar</title>
   </head>
@@ -38,13 +38,22 @@
 
     <main>
       <section class="product">
-        <div class="product-image">    <!--imagen central y thumbnails -->
+        <div class="product-image">
+          <!--imagen central y thumbnails -->
           <img
             class="img1"
             id="main-image"
             src="imagenes/SmartCollar.png"
             alt="foto1"
           />
+          <div id="image-modal" class="modal">
+            <span class="close-button">&times;</span>
+            <img
+              id="modal-image"
+              class="modal-content"
+              alt="Imagen ampliada del producto"
+            />
+          </div>
           <div class="thumbnail-container">
             <img
               class="thumbnail"
@@ -53,17 +62,17 @@
             />
             <img
               class="thumbnail"
-              src="imagenes/SmartCollar2.png"
+              src="imagenes/SmartcollarAmarillo.png"
               alt="thumbnail2"
             />
             <img
               class="thumbnail"
-              src="imagenes/SmartcollarAzul.png"
+              src="imagenes/SmartCollar2.png"
               alt="thumbnail3"
             />
             <img
               class="thumbnail"
-              src="imagenes/SmartcollarAmarillo.png"
+              src="imagenes/SmartcollarAzul.png"
               alt="thumbnail4"
             />
           </div>
@@ -78,13 +87,15 @@
               Obtén un <strong>10% de descuento</strong> en tu compra por tiempo
               limitado.
             </p>
-            <button id="apply-discount" class="confirm-button">   <!-- boton que devuelve una confirmacion -->
+            <button id="apply-discount" class="confirm-button">
+              <!-- boton que devuelve una confirmacion -->
               Aplicar Descuento
             </button>
           </div>
         </div>
 
-        <div class="product-details">        <!-- titlo y descripcion del producto a vender -->
+        <div class="product-details">
+          <!-- titlo y descripcion del producto a vender -->
           <h2>Paw Feliz Smart-Collar</h2>
           <p class="product-description">
             Collar inteligente para monitorear en tiempo real la actividad,
@@ -104,21 +115,25 @@
                 class="color-option"
                 style="background-color: rgb(94, 82, 82)"
                 data-color="gris"
+                aria-label="Seleccionar color Gris"
               ></button>
               <button
                 class="color-option"
                 style="background-color: rgb(155, 59, 158)"
                 data-color="mix"
+                aria-label="Seleccionar color Mix"
               ></button>
               <button
                 class="color-option"
                 style="background-color: rgb(250, 253, 70)"
                 data-color="amarillo"
+                aria-label="Seleccionar color Amarillo"
               ></button>
               <button
                 class="color-option"
                 style="background-color: rgb(15, 94, 240)"
                 data-color="azul"
+                aria-label="Seleccionar color Azul"
               ></button>
             </div>
           </div>
@@ -126,11 +141,13 @@
           <!-- Selección de Tamaño -->
           <div class="size-selection">
             <label for="sizes">Seleccionar Tamaño:</label>
-            <select id="sizes">
-              <option value="pequeño">Pequeño</option>
-              <option value="mediano">Mediano</option>
-              <option value="grande">Grande</option>
-            </select>
+            <div class="select-container">
+              <select id="sizes">
+                <option value="pequeño">Pequeño</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
+              </select>
+            </div>
           </div>
 
           <!-- Botón de Agregar al Carrito (dispara ventana de confirmacion de compra)-->
@@ -165,22 +182,22 @@
                 <div class="payment-methods">
                   <img
                     src="imagenes/visa.png"
-                    alt="Visa"
+                    alt="Método de pago: Visa"
                     class="payment-thumbnail"
                   />
                   <img
                     src="imagenes/mastercard.png"
-                    alt="MasterCard"
+                    alt="Método de pago: MasterCard"
                     class="payment-thumbnail"
                   />
                   <img
                     src="imagenes/paypal.png"
-                    alt="paypal"
+                    alt="Método de pago: PayPal"
                     class="payment-thumbnail"
                   />
                   <img
                     src="imagenes/transferencia.png"
-                    alt="transferencia"
+                    alt="Método de pago: Transferencia bancaria"
                     class="payment-thumbnail"
                   />
                 </div>
@@ -195,17 +212,27 @@
         </div>
       </section>
 
-        <!-- reviews de clientes -->
+      <!-- reviews de clientes -->
       <div class="customer-reviews">
         <div class="review-container">
           <div class="review">
             <div class="review-text">
               <p>
-                <strong>María:</strong> "¡Excelente producto! Mi perro está más
-                activo y feliz."
+                <strong>María:</strong> "Me encanta la interfaz. Fácil de usar y
+                muy intuitiva para gestionar los recordatorios."
               </p>
             </div>
           </div>
+
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>Fernando:</strong> "El rastreo en tiempo real ha sido un
+                salvavidas cuando mi perro se escapa del jardín."
+              </p>
+            </div>
+          </div>
+
           <div class="review">
             <div class="review-text">
               <p>
@@ -227,6 +254,24 @@
               <p>
                 <strong>Carlos:</strong> "Recomiendo este producto. La salud de
                 mi mascota ha mejorado."
+              </p>
+            </div>
+          </div>
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>Ana:</strong> "Excelente servicio, el envío fue rápido y
+                el producto llegó en perfectas condiciones. Mi perro está mucho
+                más energético."
+              </p>
+            </div>
+          </div>
+
+          <div class="review">
+            <div class="review-text">
+              <p>
+                <strong>Javier:</strong> "Muy satisfecho con la compra. Mi gato
+                está mucho más activo desde que empezó a usar este producto."
               </p>
             </div>
           </div>
@@ -300,9 +345,6 @@
       <button class="close-chatbot" onclick="toggleChatbot()">Cerrar</button>
     </div>
 
-    <script src="js/chatbot.js"></script>
-    <script src="js/comprar.js"></script>
-
     <footer class="footer-compras">
       <div class="contenedor">
         <p class="copy">PawFeliz &copy; 2024</p>
@@ -334,4 +376,7 @@
       </div>
     </footer>
   </body>
+  <script src="js/chatbot.js"></script>
+  <script src="js/comprar.js"></script>
+  
 </html>
