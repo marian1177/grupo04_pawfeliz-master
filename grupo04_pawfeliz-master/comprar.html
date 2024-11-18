@@ -8,11 +8,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="css/estilo.css" />
-    <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/fontello.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/comprar.css" />
-    <!-- pagina de noticias reemplazada cambios-->
+    <link rel="stylesheet" href="css/chatbot.css" />
     <link rel="stylesheet" href="css/footer.css" />
 
     <title>Comprar</title>
@@ -25,12 +24,9 @@
         <label class="icon-menu" for="btn-menu"></label>
         <nav class="menu">
           <ul>
-            <li><a href="index.html">Inicio</a></li>
             <li><a href="ingreso.html">Ingreso</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="Comprar.html">Comprar</a></li>
-            <li><a href="nosotros.html">Nosotros</a></li>
-            <li><a href="adopciones.html">Adopciones</a></li>
+            <li><a href="comprar.html">Comprar</a></li>
+            <li><a href="Paw_Tips.html">Paw Tips</a></li>
           </ul>
         </nav>
       </div>
@@ -43,7 +39,7 @@
           <img
             class="img1"
             id="main-image"
-            src="imagenes/SmartCollar.png"
+            src="imagenes/SmartCollarbeta2.png"
             alt="foto1"
           />
           <div id="image-modal" class="modal">
@@ -57,7 +53,7 @@
           <div class="thumbnail-container">
             <img
               class="thumbnail"
-              src="imagenes/SmartCollar.png"
+              src="imagenes/SmartCollarbeta2.png"
               alt="thumbnail1"
             />
             <img
@@ -113,13 +109,13 @@
             <div class="color-options">
               <button
                 class="color-option"
-                style="background-color: rgb(94, 82, 82)"
+                style="background-color: #9b3b9e"
                 data-color="gris"
                 aria-label="Seleccionar color Gris"
               ></button>
               <button
                 class="color-option"
-                style="background-color: rgb(155, 59, 158)"
+                style="background-color: #5e5252"
                 data-color="mix"
                 aria-label="Seleccionar color Mix"
               ></button>
@@ -162,51 +158,67 @@
 
               <!-- Formulario de Envío -->
               <form id="shipping-form">
-                <label for="province">Provincia:</label>
-                <input type="text" id="province" name="province" required />
-
-                <label for="zone">Zona:</label>
-                <input type="text" id="zone" name="zone" required />
-
-                <label for="locality">Localidad:</label>
-                <input type="text" id="locality" name="locality" required />
+                <label for="address">Dirección: </label>
+                <input
+                  type="text"
+                  id="address"
+                  name="address"
+                  placeholder="Ingresa tu dirección"
+                  autocomplete="off"
+                  required
+                />
+                <p></p>
+                <ul id="suggestions" class="suggestions-list"></ul>
 
                 <label for="cp">Código Postal:</label>
-                <input type="text" id="cp" name="cp" required />
-
+                <input
+                  type="text"
+                  id="cp"
+                  name="cp"
+                  placeholder="Código Postal"
+                  required
+                />
+                <p></p>
                 <label for="phone">Teléfono:</label>
-                <input type="text" id="phone" name="phone" required />
-
-                <!-- Métodos de Pago -->
-                <h3>Método de Pago</h3>
-                <div class="payment-methods">
-                  <img
-                    src="imagenes/visa.png"
-                    alt="Método de pago: Visa"
-                    class="payment-thumbnail"
-                  />
-                  <img
-                    src="imagenes/mastercard.png"
-                    alt="Método de pago: MasterCard"
-                    class="payment-thumbnail"
-                  />
-                  <img
-                    src="imagenes/paypal.png"
-                    alt="Método de pago: PayPal"
-                    class="payment-thumbnail"
-                  />
-                  <img
-                    src="imagenes/transferencia.png"
-                    alt="Método de pago: Transferencia bancaria"
-                    class="payment-thumbnail"
-                  />
-                </div>
-
-                <button type="submit" class="confirm-button">
-                  Confirmar Compra
-                </button>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  placeholder="Ingresa tu teléfono"
+                  required
+                />
                 <p></p>
               </form>
+
+              <!-- Métodos de Pago -->
+              <h3>Método de Pago</h3>
+              <div class="payment-methods">
+                <img
+                  src="imagenes/visa.png"
+                  alt="Método de pago: Visa"
+                  class="payment-thumbnail"
+                />
+                <img
+                  src="imagenes/mastercard.png"
+                  alt="Método de pago: MasterCard"
+                  class="payment-thumbnail"
+                />
+                <img
+                  src="imagenes/paypal.png"
+                  alt="Método de pago: PayPal"
+                  class="payment-thumbnail"
+                />
+                <img
+                  src="imagenes/transferencia.png"
+                  alt="Método de pago: Transferencia bancaria"
+                  class="payment-thumbnail"
+                />
+              </div>
+
+              <button type="submit" class="confirm-button">
+                Confirmar Compra
+              </button>
+              <p></p>
             </div>
           </div>
         </div>
@@ -279,61 +291,6 @@
       </div>
     </main>
 
-    <style>
-      .chatbot-container {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-      }
-
-      .chatbot-icon {
-        width: 90px;
-        height: 90px;
-        background: url("imagenes/gatitochatbot.png") no-repeat center;
-        background-size: contain;
-        cursor: pointer;
-      }
-
-      .chatbot-iframe {
-        width: 450px;
-        height: 430px;
-        display: none;
-        border: none;
-        autoline: none;
-        position: relative;
-      }
-
-      .close-chatbot {
-        display: none;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #ff9800;
-        border: none;
-        color: #fff;
-        padding: 5px 10px;
-        cursor: pointer;
-        font-size: 16px;
-        border-radius: 5px;
-      }
-
-      .chatbot-container.expanded .chatbot-iframe {
-        display: block;
-      }
-
-      .chatbot-container.expanded .chatbot-icon {
-        display: none;
-      }
-
-      .chatbot-container.expanded .close-chatbot {
-        display: block;
-      }
-    </style>
-
     <div class="chatbot-container">
       <div class="chatbot-icon" onclick="toggleChatbot()"></div>
       <iframe
@@ -345,7 +302,7 @@
       <button class="close-chatbot" onclick="toggleChatbot()">Cerrar</button>
     </div>
 
-    <footer class="footer-compras">
+    <footer class="footer">
       <div class="contenedor">
         <p class="copy">PawFeliz &copy; 2024</p>
         <div class="redes">
@@ -378,5 +335,4 @@
   </body>
   <script src="js/chatbot.js"></script>
   <script src="js/comprar.js"></script>
-  
 </html>

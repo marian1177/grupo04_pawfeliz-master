@@ -1,0 +1,117 @@
+/* Estilo general para el header */
+header {
+    width: 100%;
+    height: 50px;
+    background: #4E734D;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex; /* Para alinear el contenido del header */
+    justify-content: space-between; /* Espacio entre el logo y el menú */
+    padding: 0 20px; /* Espaciado interior */
+  }
+  
+  /* Estilo del logo (icono) */
+  .icon-paw {
+    margin-top: 0px;
+  }
+  
+  /* Estilo del contenedor para organizar su contenido */
+  header .contenido {
+    display: flex;
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* Estilos del botón del menú (oculto por defecto) */
+  #btn-menu {
+    display: none; /* El checkbox no se muestra directamente */
+  }
+  
+  /* Estilos para el label (icono del menú) en pantallas pequeñas */
+  header label {
+    font-size: 28px;
+    cursor: pointer;
+    margin: 6px 0;
+    display: none; /* Se esconde por defecto en pantallas grandes */
+  }
+  
+  /* Estilos para el menú en pantallas pequeñas */
+  .menu {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #4E734D;
+    transition: all 0.5s;
+    transform: translateX(-100%); /* El menú empieza oculto */
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu a {
+    display: block;
+    color: #fff;
+    height: 50px;
+    text-decoration: none;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .menu a:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Cuando el checkbox está marcado, el menú se muestra */
+  #btn-menu:checked ~ .menu {
+    transform: translateX(0%); /* El menú se desplaza desde la izquierda */
+  }
+  
+  /* Estilos para pantallas grandes (a partir de 1024px) */
+  @media (min-width: 1024px) {
+    /* El menú se muestra como una barra horizontal */
+    .menu {
+      position: static;
+      width: auto;
+      height: auto;
+      transform: translateX(0); /* El menú es visible y está estático */
+      display: flex;
+    }
+  
+    .menu ul {
+      display: flex;
+      justify-content: flex-end;
+    }
+  
+    .menu a {
+      border: none;
+      padding: 10px 20px; /* Ajuste de padding para menús horizontales */
+    }
+  
+    /* Esconde el botón de menú en pantallas grandes */
+    header label {
+      display: none; /* El label con el icono de hamburguesa desaparece */
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas (por debajo de 1024px) */
+  @media (max-width: 1024px) {
+    /* Muestra el icono de hamburguesa (tres barritas) en pantallas pequeñas */
+    header label {
+      display: block; /* Asegura que el icono de hamburguesa aparezca */
+    }
+  
+    /* Aseguramos que el menú se muestre correctamente en pantallas pequeñas */
+    .menu ul {
+      display: block; /* Asegura que los elementos del menú se apilen verticalmente */
+    }
+  }
+  

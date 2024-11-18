@@ -1,0 +1,10 @@
+[
+    { "direccion": "Av. Corrientes 1234, Buenos Aires, Argentina", "cp": "1043" },
+    { "direccion": "Calle San Martín 456, Córdoba, Argentina", "cp": "5000" },
+    { "direccion": "Av. Belgrano 789, Rosario, Argentina", "cp": "2000" },
+    { "direccion": "Calle Florida 100, Mendoza, Argentina", "cp": "5500" },
+    { "direccion": "Av. 9 de Julio 1100, Buenos Aires, Argentina", "cp": "1406" },
+    { "direccion": "Calle Colón 555, Mar del Plata, Argentina", "cp": "7600" },
+    { "direccion": "Avenida Maipu 447, Buenos Aires, Argentina", "cp": "1638" } 
+  ]
+  
